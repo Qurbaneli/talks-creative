@@ -1,0 +1,110 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
+body {
+  background-image: url("../assets/images/wave.svg");
+}
+.container {
+  width: 1600px;
+  margin: 0 auto;
+}
+
+//Modal
+
+// Modal Component
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Semi-transparent black background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff; // White background for the modal
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // Box shadow for a subtle lift effect
+  position: relative;
+  width: 100%;  
+  width: 791px;
+flex-shrink: 0;
+border-radius: 40px;
+background: #F3F7FF;
+box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 48px;
+  color: #333;
+}
+
+#main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+
+  .logo-text {
+    width: 40%;
+    margin-right: 130px;
+
+    .text-detail {
+      margin-top: 131px;
+      p {
+        width: 576px;
+        font-family: "SF Pro Display";
+        color: #333;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: justify;
+        margin-bottom: 96px;
+      }
+      .btn-register {
+        cursor: pointer;
+        width: 237px;
+        height: 60px;
+        border-radius: 10px;
+        background: #5f1ce8;
+        color: #fff;
+        font-family: "SF Pro Display";
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 35px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
+    }
+  }
+
+  .map {
+    width: 60%;
+    svg {
+      // width: 100%;
+      path {
+        cursor: pointer;
+        &:hover {
+          fill: #f2ebff;
+          // stroke:#5F1CE8A6;
+          stroke-width: 4px;
+        }
+      }
+    }
+  }
+}
