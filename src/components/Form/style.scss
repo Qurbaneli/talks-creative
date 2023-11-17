@@ -9,6 +9,13 @@
   margin-bottom: 30px;
 }
 
+.error {
+  font-size: 16px;
+  color: red;
+  margin-top: 7px;
+  font-family: "SF Pro Display";
+}
+
 .steps {
   display: flex;
   justify-content: space-between;
@@ -17,14 +24,14 @@
   margin: 0 auto;
   margin-bottom: 40px;
   position: relative;
-  gap:180px;
+  gap: 180px;
   .line {
-    width:302px;
+    width: 302px;
     height: 1px;
     background: #717171;
     position: absolute;
-    top:25px;
-    left:96px;
+    top: 25px;
+    left: 96px;
   }
   .step {
     span {
@@ -68,26 +75,40 @@
     }
   }
 }
-.form-radio{
-  
-  .form-item{
+.form-radio {
+  border-radius: 16px;
+  border: 1px solid #c5c5c5;
+  background: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+
+  h2 {
+    color: #000;
+    font-family: "SF Pro Display";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 30px;
+  }
+  .form-item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 36px;
-    label{
-     color: #000;
- font-family: "SF Pro Display";
- font-size: 24px;
- font-style: normal;
- font-weight: 400;
- line-height: normal;
+    label {
+      color: #000;
+      font-family: "SF Pro Display";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
- 
-    input{
-     width:30px;
-     height: 30px;
+
+    input {
+      width: 30px;
+      height: 30px;
     }
-   }
+  }
 }
 
 .form-row {
@@ -95,20 +116,20 @@
   justify-content: space-between;
   gap: 31px;
 
-  .radio-item{
-   label{
-    color: #000;
-font-family: "SF Pro Display";
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-   }
+  .radio-item {
+    label {
+      color: #000;
+      font-family: "SF Pro Display";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
 
-   input{
-    width:30px;
-    height: 30px;
-   }
+    input {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   .form-item {
@@ -156,5 +177,11 @@ line-height: normal;
     line-height: 135.446%; /* 35.216px */
     margin-top: 10px;
     cursor: pointer;
+    border: none;
+  }
+
+  .btn-next:disabled {
+    background-color: #601ce831;
+    cursor: not-allowed;
   }
 }
