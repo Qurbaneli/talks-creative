@@ -3,7 +3,7 @@ import ok from "../../assets/images/ok.svg";
 import api from "../../api/api";
 import "./style.scss";
 
-function Result(
+function Result({
   setFormStep,
   formStep,
   region,
@@ -20,8 +20,14 @@ function Result(
   phone,
   setPhone,
   events,
-  setEvents
-) {
+  setEvents,
+  city,
+  setCity,
+  eventDate,
+  setEventDate,
+  eventName,
+  setEventName
+}) {
 
   const saveData = (e) => {
     e.preventDefault();
@@ -109,12 +115,12 @@ function Result(
             <div className="result-row">
             <div className="result-item">
                 <span className="result-title">Seçilmiş səhər</span>
-                <span className="result-value">Baki</span>
+                <span className="result-value">{city}</span>
             </div>
 
             <div className="result-item">
                 <span className="result-title">Secilmiş tarix</span>
-                <span className="result-value">12 noyabr</span>
+                <span className="result-value">{eventDate}</span>
             </div>
 
             </div>
@@ -122,7 +128,7 @@ function Result(
             <div className="result-row">
             <div className="result-item">
                 <span className="result-title">Secilmiş tədbir</span>
-                <span className="result-value">Yaradıcı Kinematoqrafiya: Ssenaridən ekrana</span>
+                <span className="result-value">{eventName}</span>
             </div>
             </div>
 
@@ -131,7 +137,7 @@ function Result(
 
 
           <div className="btn-row">
-            <button className="btn-next" type="submit">
+            <button className="btn-next">
               Növbəti
             </button>
           </div>

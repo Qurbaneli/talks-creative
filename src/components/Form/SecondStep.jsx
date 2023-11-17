@@ -19,26 +19,37 @@ function SecondStep({
   phone,
   setPhone,
   events,
-  setEvents
+  setEvents,
+  city,
+  setCity,
+  eventDate,
+  setEventDate,
+  eventName,
+  setEventName
+  
 }) {
   
-
-  const handleEvents = (e) => {
+const[eventError,setEventError]=useState("")
+  const handleEvents = (e,city,event_date,event_name) => {
     if (!events.includes(e.target.value)) {
       setEvents([...events, e.target.value]);
+      setCity(city)
+      setEventDate(event_date)
+      setEventName(event_name)
       console.log(events);
     }
   };
   const register = (e) => {
     e.preventDefault();
-    console.log(name);
-    console.log(surname);
-    console.log(education);
-    console.log(work);
-    console.log(email);
-    console.log(phone);
+    if(events.length>0)
+    {
+      setFormStep(3)
+    }
+    else
+    {
+      setEventError("Zəhmət olmasa təlim seçin")
+    }    
     
-    setFormStep(3)
 
   };
   return (
@@ -63,18 +74,20 @@ function SecondStep({
           }}
           action=""
         >
+          {eventError && (<p className="error error-event">{eventError}</p>)}
           {region.map((element) => {
             return (
               <div className="form-radio">
+               
                 <h2>{element.cast_date}</h2>
-
+                
                 {element.data.map((el) => {
                   return (
                     <div className="form-item">
                       <label htmlFor="">{el.event_name}</label>
                       <input
                         onChange={(e) => {
-                          handleEvents(e);
+                          handleEvents(e,el.city_name,el.cast_date,el.event_name);
                         }}
                         type="radio"
                         name={element.cast_date}
@@ -83,12 +96,13 @@ function SecondStep({
                     </div>
                   );
                 })}
+                
               </div>
             );
           })}
 
           <div className="btn-row">
-            <button className="btn-next" type="submit">
+            <button className="btn-next" >
               Növbəti
             </button>
           </div>

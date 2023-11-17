@@ -64,9 +64,25 @@ body {
         cursor: pointer;
         &:not(.seher):hover {
           fill: #f2ebff;
-          // stroke:#5F1CE8A6;
           stroke-width: 4px;
+          stroke: rgba(95, 28, 232, 0.65);
+          filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
         }
+      }
+      .region:hover ~ .seki,
+      .region:hover ~ .quba,
+      .region:hover ~ .baki,
+      .region:hover ~ .samaxi,
+      .region:hover ~ .lenkeran,
+      .region:hover ~ .naxcivan,
+      .region:hover ~ .gence,
+      .region:hover ~ .susa,
+      .region:hover ~ .mingecevir
+       {
+        stroke-width: 1px;
+        stroke: #333;
+        transform: scale(1.1); /* Adjust the scale factor as needed */
+        transform-origin: center center;
       }
     }
   }
