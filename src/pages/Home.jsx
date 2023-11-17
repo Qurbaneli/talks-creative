@@ -23,6 +23,8 @@ function Home() {
   const [education, setEducation] = useState("");
   const [work, setWork] = useState("");
 
+  const [events, setEvents] = useState([]);
+
   const openModal = (id) => {
     getRegion(id);
     // console.log(id);
@@ -105,6 +107,8 @@ function Home() {
             setPhone={setPhone}
             email={email}
             setEmail={setEmail}
+            events={events}
+            setEvents={setEvents}
           />
         </Modal>
       )}
@@ -126,6 +130,8 @@ function Home() {
             setPhone={setPhone}
             email={email}
             setEmail={setEmail}
+            events={events}
+            setEvents={setEvents}
           />
         </Modal>
       )}

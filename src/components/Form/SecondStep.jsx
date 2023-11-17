@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ok from "../../assets/images/ok.svg"
-import api from "../../api/api";
 import "./style.scss";
 
 function SecondStep({
@@ -21,8 +18,10 @@ function SecondStep({
   setEmail,
   phone,
   setPhone,
+  events,
+  setEvents
 }) {
-  const [events, setEvents] = useState([]);
+  
 
   const handleEvents = (e) => {
     if (!events.includes(e.target.value)) {
@@ -38,32 +37,12 @@ function SecondStep({
     console.log(work);
     console.log(email);
     console.log(phone);
+    
+    setFormStep(3)
 
-    api
-      .post("https://api-talks.creative.az/api/register/events", {
-        participant: {
-          first_name: name,
-          last_name: surname,
-          phone: phone,
-          email: email,
-          education: education,
-          workplace: work,
-        },
-        events: events,
-      })
-      .then((response) => {
-        console.log(response)
-        if(response.status==200 || response.status==201)
-        {
-          toast.success("Qeydiyyatdan kecdiniz", {
-            position: toast.POSITION.TOP_CENTER
-          });
-        }
-      });
   };
   return (
     <>
-    <ToastContainer autoClose={2000} hideProgressBar={false}/>
       <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
         <div className="step active">
