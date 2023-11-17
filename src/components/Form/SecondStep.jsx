@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ok from "../../assets/images/ok.svg"
 import api from "../../api/api";
 import "./style.scss";
 
@@ -49,15 +52,22 @@ function SecondStep({
         events: events,
       })
       .then((response) => {
-        console.log(response);
+        console.log(response)
+        if(response.status==200 || response.status==201)
+        {
+          toast.success("Qeydiyyatdan kecdiniz", {
+            position: toast.POSITION.TOP_CENTER
+          });
+        }
       });
   };
   return (
     <>
+    <ToastContainer autoClose={2000} hideProgressBar={false}/>
       <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
-        <div className="step">
-          <div className="step-circle">1</div>
+        <div className="step active">
+          <div className="step-circle"><img src={ok} alt="" /></div>
           <span>Şəxsi məlumatlar</span>
         </div>
         <div className="line"></div>

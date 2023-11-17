@@ -6,6 +6,7 @@
 @font-face {
   font-family: "SF Pro Display";
   src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF");
+  // src: url("../assets/fonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 body {
@@ -61,7 +62,7 @@ body {
       // width: 100%;
       path {
         cursor: pointer;
-        &:hover {
+        &:not(.seher):hover {
           fill: #f2ebff;
           // stroke:#5F1CE8A6;
           stroke-width: 4px;
@@ -69,4 +70,26 @@ body {
       }
     }
   }
+}
+
+//Scrolbar
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5f1ce8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #601ce8d0;
 }
