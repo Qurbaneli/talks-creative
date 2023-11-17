@@ -82,7 +82,6 @@ function SecondStep({
                 {element.data.map((el) => {
                   return (
                     <div className="form-item">
-                      <p>{el.city_name}</p>
                       <label htmlFor="">{el.event_name}</label>
                       <input
                         onChange={(e) => {

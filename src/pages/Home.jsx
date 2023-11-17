@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import logo from "../assets/images/logo.svg";
 import api from "../api/api";
 import "./style.scss";
+
 
 import Modal from "../components/Modal/Modal";
 import SecondStep from "../components/Form/SecondStep";
@@ -20,16 +23,26 @@ function Home() {
   const [work, setWork] = useState("");
 
   const openModal = (id) => {
-    setModalIsOpen(true);
-    console.log(id);
     getRegion(id);
+    // console.log(id);
   };
 
   const getRegion = async (id) => {
     try {
       const response = await api.get(`/region/${id}/events`);
+      
       setRegion(response.data);
       console.log(response.data);
+      if(response.data.length>0)
+      {
+        setModalIsOpen(true);
+      }
+      else
+      {
+        toast.error("Tədbir yoxdur", {
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -43,6 +56,7 @@ function Home() {
 
   return (
     <div className="container">
+      <ToastContainer autoClose={2000} hideProgressBar={false}/>
       <Modal isOpen={modalIsOpen} closeModal={closeModal}>
         {formStep == 1 && (
           <FirstStep

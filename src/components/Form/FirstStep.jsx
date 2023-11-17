@@ -71,7 +71,6 @@ function FirstStep({
     }
 
     setErrors(newErrors);
-    isValid=true
     if (isValid) {
       setFormStep(2);
     }
