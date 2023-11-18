@@ -1,16 +1,16 @@
 // Modal Component
 .modal-overlay {
-    position:absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5); // Semi-transparent black background
+    // position:absolute;
+    // top: 0;
+    // left: 0;
+    // height: 100%;
+    // width: 100%;
+    // background: rgba(0, 0, 0, 0.5); // Semi-transparent black background
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-y:auto;
-    
+    margin-bottom: 100px;
   }
 
   .modal-overlay.first{
@@ -20,12 +20,12 @@
     }
   }
 
-  .modal-overlay.second{
-    bottom: 0;
-    .modal-content{
-      height: 800px;
-    }
-  }
+  // .modal-overlay.second{
+  //   bottom: 0;
+  //   .modal-content{
+  //     height: 800px;
+  //   }
+  // }
 
   .modal-overlay.message{
     bottom: 0;

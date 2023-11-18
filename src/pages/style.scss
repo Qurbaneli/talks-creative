@@ -18,6 +18,9 @@
 
 body {
   background-image: url("../assets/images/wave.svg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  scroll-behavior:smooth;
 }
 .container {
   width: 1600px;
@@ -70,7 +73,7 @@ body {
       // width: 100%;
       path {
         cursor: pointer;
-        &:not(.seher):hover {
+        &:not(.seher , .not-hover):hover {
           fill: #f2ebff;
           stroke-width: 4px;
           stroke: rgba(95, 28, 232, 0.65);
