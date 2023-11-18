@@ -15,6 +15,7 @@ import Message from "../components/Form/Message";
 function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formStep, setFormStep] = useState(1);
+  const[registerMessage,setRegisterMessage]=useState(false)
   const [region, setRegion] = useState([]);
 
   //Form inputs
@@ -82,9 +83,7 @@ function Home() {
   };
 
  const registerButton=()=>{
-  toast.info("Qeydiyyat üçün öncə xəritədən ərazi seçin", {
-    position: toast.POSITION.TOP_CENTER,
-  });
+    setRegisterMessage(true)
  }
   return (
     <div className="container">
@@ -108,6 +107,7 @@ function Home() {
               və təlimlərdən ibarət olacaq.{" "}
             </p>
             <button onClick={registerButton} className="btn-register">Qeydiyyat</button>
+            {registerMessage && <p className="register-message">Xəritədən şəhər seçin</p>}
           </div>
         </div>
         <Map openModal={openModal}/>

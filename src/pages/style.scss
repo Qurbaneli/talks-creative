@@ -64,6 +64,17 @@ body {
         text-align: center;
         border:none;
       }
+
+      .register-message{
+        margin-top: 10px;
+        color: #FF4F4F;
+        font-family: "SF Pro Display";
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 30px;
+        width: 237px;
+        text-align: center;
+        }
     }
   }
 
@@ -83,6 +94,7 @@ body {
       .region:hover ~ .seki,
       .region:hover ~ .quba,
       .region:hover ~ .baki,
+      .region:hover ~ .sumqayit,
       .region:hover ~ .samaxi,
       .region:hover ~ .lenkeran,
       .region:hover ~ .naxcivan,

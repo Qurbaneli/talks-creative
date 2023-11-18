@@ -147,7 +147,7 @@ function Result({
             </div>
             </div>
 
-
+          <p>Bir təlimin (görüş/ustad dərs) müddəti 2 saatdır</p>
         </div>
 
 
