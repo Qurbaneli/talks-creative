@@ -19,18 +19,32 @@ function Result({
   setEmail,
   phone,
   setPhone,
-  events,
-  setEvents,
   city,
   setCity,
-  eventDate,
-  setEventDate,
-  eventName,
-  setEventName
+  eventDates,
+  setEventDates,
+  eventNames,
+  setEventNames,
+  firstEvent,
+  setFirstEvent,
+  secondEvent,
+  setSecondEvent,
 }) {
 
   const saveData = (e) => {
     e.preventDefault();
+    var events=[firstEvent]
+    console.log("Ikinci"+secondEvent)
+    if(secondEvent)
+    {
+     console.log("ikinci var")
+    events=[firstEvent,secondEvent]
+    }
+    else
+    {
+      console.log("ikinci yoxdur")
+      events=[firstEvent]
+    }
     console.log(name);
     console.log(surname);
     console.log(education);
@@ -120,7 +134,7 @@ function Result({
 
             <div className="result-item">
                 <span className="result-title">Secilmiş tarix</span>
-                <span className="result-value">{eventDate}</span>
+                <span className="result-value">{eventDates.first} {eventDates.second && ","+eventDates.second}</span>
             </div>
 
             </div>
@@ -128,7 +142,8 @@ function Result({
             <div className="result-row">
             <div className="result-item">
                 <span className="result-title">Secilmiş tədbir</span>
-                <span className="result-value">{eventName}</span>
+                <span className="result-value">{eventNames.first}</span>
+                {eventNames.second && (<span className="result-value second">{eventNames.second}</span>)}
             </div>
             </div>
 
@@ -138,7 +153,7 @@ function Result({
 
           <div className="btn-row">
             <button className="btn-next">
-              Növbəti
+              Göndər
             </button>
           </div>
         </form>

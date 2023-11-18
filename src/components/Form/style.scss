@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../../assets/fonts/SFPRODISPLAYREGULAR.OTF");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-weight: 500;
+  src: url("../../assets/fonts/SFPRODISPLAYMEDIUM.OTF");
+}
+
 .form-title {
   color: #000;
   text-align: center;
@@ -106,6 +118,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      cursor: pointer;
     }
 
     input {
@@ -172,7 +185,6 @@
   border: 1px solid #c5c5c5;
   font-family: "SF Pro Display";
   font-size: 22px;
-  font-weight: 400;
   line-height: 26px;
   letter-spacing: 0em;
   text-align: left;
@@ -187,10 +199,22 @@
       margin-bottom: 36px;
       .result-title {
         margin-bottom: 10px;
+        font-family: "SF Pro Display";
+font-size: 22px;
+font-weight: 400;
+line-height: 26px;
+
+
       }
       .result-value {
+        font-family: "SF Pro Display";
         font-size: 26px;
         font-weight: 500;
+        line-height: 31px;        
+
+        &.second{
+          margin-top: 15px;
+        }
       }
     }
   }
