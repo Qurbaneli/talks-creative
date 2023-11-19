@@ -17,9 +17,9 @@ function Map({openModal}) {
   return (
     <div className="map">
             <svg
-        // width="1025"
-        // height="841"
-        viewBox="0 0 1025 741"
+        width="1025"
+        height="841"
+        viewBox="0 0 1025 751"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

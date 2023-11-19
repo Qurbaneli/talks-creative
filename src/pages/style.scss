@@ -85,8 +85,9 @@ body {
     width: 60%;
     svg {
       width: 100%;
-      width: 1020px;
-      height: 800px;
+      height: 100%;
+      // width: 1020px;
+      // height: 800px;
       path {
         cursor: pointer;
         &:not(.seher, .not-hover):hover {
@@ -95,15 +96,14 @@ body {
           stroke: rgba(95, 28, 232, 0.65);
           filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
         }
-
       }
-      .region.active{
+      .region.active {
         fill: #f2ebff;
         stroke-width: 4px;
         // stroke: rgba(95, 28, 232, 0.65);
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
       }
-      
+
       .region:hover ~ .seki,
       .region:hover ~ .quba,
       .region:hover ~ .baki,
@@ -127,7 +127,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 /* Track */
@@ -164,11 +164,28 @@ body {
     .map {
       width: 100%;
       margin-top: 50px;
-      svg{
+      svg {
         width: 100%;
-       height: 100%;
-       height: 600px;
+        height: 100%;
       }
     }
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  #main {
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    .logo-text {
+      .logo{
+        img{
+          width: 100%;
+        }
+      }
+    }
+
   }
 }
