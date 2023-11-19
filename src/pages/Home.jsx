@@ -35,6 +35,8 @@ function Home() {
   const [eventDates, setEventDates] = useState({ first: "", second: "" });
   const [eventNames, setEventNames] = useState({ first: "", second: "" });
 
+
+
   const openModal = (id) => {
    
     getRegion(id);

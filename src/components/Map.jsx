@@ -1,11 +1,24 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 
 function Map({openModal}) {
+
+  useEffect(()=>{
+    const regions=document.querySelectorAll(".region:not(.not-hover)")
+    regions.forEach((el)=>{
+      el.addEventListener("click",function(){
+        regions.forEach((element)=>{
+          element.classList.remove("active")
+        })
+        el.classList.add("active")
+      })
+    })
+  },[])
+
   return (
     <div className="map">
             <svg
-        width="1025"
-        height="841"
+        // width="1025"
+        // height="841"
         viewBox="0 0 1025 741"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

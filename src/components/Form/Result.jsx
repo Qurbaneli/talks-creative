@@ -33,17 +33,15 @@ function Result({
 
   const saveData = (e) => {
     e.preventDefault();
-    var events=[firstEvent]
+    var events=[]
     console.log("Ikinci"+secondEvent)
+    if(firstEvent)
+    {
+     events.push(firstEvent)
+    }
     if(secondEvent)
     {
-     console.log("ikinci var")
-    events=[firstEvent,secondEvent]
-    }
-    else
-    {
-      console.log("ikinci yoxdur")
-      events=[firstEvent]
+      events.push(secondEvent)
     }
     console.log(name);
     console.log(surname);
