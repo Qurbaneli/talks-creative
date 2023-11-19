@@ -242,7 +242,7 @@ line-height: 26px;
   }
 
   .btn-next:disabled {
-    background-color: #601ce831;
+    background-color: #AA8CE8;
     cursor: not-allowed;
   }
 }
@@ -262,4 +262,14 @@ letter-spacing: 0em;
 text-align: center;
 
   }
+}
+
+@media only screen and (max-width: 1200px) {
+    .form-row{
+      flex-direction: column;
+      margin: 0px !important;
+        .form-item{
+          margin: 0px;
+        }
+    }
 }

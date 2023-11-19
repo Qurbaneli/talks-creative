@@ -20,11 +20,13 @@ body {
   background-image: url("../assets/images/wave.svg");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 .container {
-  width: 1600px;
+  max-width: 1600px;
   margin: 0 auto;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 #main {
@@ -39,7 +41,7 @@ body {
     .text-detail {
       margin-top: 131px;
       p {
-        width: 576px;
+        max-width: 576px;
         font-family: "SF Pro Display";
         color: #333;
         font-size: 22px;
@@ -62,29 +64,31 @@ body {
         line-height: 35px;
         letter-spacing: 0em;
         text-align: center;
-        border:none;
+        border: none;
       }
 
-      .register-message{
+      .register-message {
         margin-top: 10px;
-        color: #FF4F4F;
+        color: #ff4f4f;
         font-family: "SF Pro Display";
         font-size: 22px;
         font-weight: 400;
         line-height: 30px;
         width: 237px;
         text-align: center;
-        }
+      }
     }
   }
 
   .map {
     width: 60%;
     svg {
-      // width: 100%;
+      width: 110%;
+      max-width: 1200px;
+      max-height: 800px;
       path {
         cursor: pointer;
-        &:not(.seher , .not-hover):hover {
+        &:not(.seher, .not-hover):hover {
           fill: #f2ebff;
           stroke-width: 4px;
           stroke: rgba(95, 28, 232, 0.65);
@@ -100,8 +104,7 @@ body {
       .region:hover ~ .naxcivan,
       .region:hover ~ .gence,
       .region:hover ~ .susa,
-      .region:hover ~ .mingecevir
-       {
+      .region:hover ~ .mingecevir {
         stroke-width: 1px;
         stroke: #333;
         transform: scale(1.1); /* Adjust the scale factor as needed */
@@ -131,4 +134,29 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #601ce8d0;
+}
+
+@media only screen and (max-width: 1200px) {
+  #main {
+    flex-direction: column;
+    justify-content: center;
+
+    .logo-text {
+      width: 100% !important;
+      .text-detail {
+        margin-top: 50px !important;
+        p {
+          max-width: 100% !important;
+          margin-bottom: 50px !important;
+        }
+      }
+    }
+
+    .map {
+      width: 100%;
+      svg{
+        width: 100%;
+      }
+    }
+  }
 }

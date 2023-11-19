@@ -29,7 +29,7 @@ function SecondStep({
   secondEvent,
   setSecondEvent,
 }) {
-  const [eventError, setEventError] = useState("");
+  const [eventStatus, setEventStatus] = useState(false);
   const handleEvents = (e, item, city, event_date, event_name) => {
     if (item == 0) {
       setFirstEvent(e.target.value);
@@ -45,13 +45,18 @@ function SecondStep({
       setEventNames(updatedNames);
     }
     setCity(city);
+    if(firstEvent || secondEvent)
+    {
+      setEventStatus(true)
+    }
+    else{
+      secondEvent(false)
+    }
   };
   const register = (e) => {
     e.preventDefault();
     if (firstEvent || secondEvent) {
       setFormStep(3);
-    } else {
-      setEventError("Zəhmət olmasa təlim seçin");
     }
   };
   return (
@@ -78,7 +83,7 @@ function SecondStep({
           }}
           action=""
         >
-          {eventError && <p className="error error-event">{eventError}</p>}
+
           {region.map((element, item) => {
             return (
               <div className="form-radio">
@@ -111,7 +116,7 @@ function SecondStep({
           })}
 
           <div className="btn-row">
-            <button className="btn-next">Növbəti</button>
+            <button disabled={!eventStatus ? true : false} className="btn-next">Növbəti</button>
           </div>
         </form>
       </div>

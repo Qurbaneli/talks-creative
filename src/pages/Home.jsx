@@ -49,7 +49,7 @@ function Home() {
       console.log(response.data);
       if (response.data.length > 0) {
         setModalIsOpen(true);
-        document.querySelector(".modal-overlay").scrollIntoView();
+        document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
       } else {
         toast.info("Tədbir olması planlaşdırılır", {
           position: toast.POSITION.TOP_CENTER,
@@ -112,7 +112,7 @@ function Home() {
         </div>
         <Map openModal={openModal}/>
       </div>
-
+    
       {formStep == 1 && (
         <Modal variant={true} isOpen={modalIsOpen} closeModal={closeModal}>
           <FirstStep
