@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ok from "../../assets/images/ok.svg";
 import "./style.scss";
 
@@ -45,14 +45,18 @@ function SecondStep({
       setEventNames(updatedNames);
     }
     setCity(city);
+  };
+
+  useEffect(()=>{
     if(firstEvent || secondEvent)
     {
       setEventStatus(true)
     }
     else{
-      secondEvent(false)
+      setEventStatus(false)
     }
-  };
+  },[firstEvent,secondEvent])
+
   const register = (e) => {
     e.preventDefault();
     if (firstEvent || secondEvent) {

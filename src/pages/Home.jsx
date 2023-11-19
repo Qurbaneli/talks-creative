@@ -41,6 +41,12 @@ function Home() {
     // console.log(id);
   };
 
+  useEffect(()=>{
+    if(modalIsOpen){
+      document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
+    }
+  })
+
   const getRegion = async (id) => {
     try {
       const response = await api.get(`/region/${id}/events`);
@@ -49,7 +55,7 @@ function Home() {
       console.log(response.data);
       if (response.data.length > 0) {
         setModalIsOpen(true);
-        document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
+        // document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
       } else {
         toast.info("Tədbir olması planlaşdırılır", {
           position: toast.POSITION.TOP_CENTER,

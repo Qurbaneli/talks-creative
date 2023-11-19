@@ -134,7 +134,7 @@ function Result({
 
             <div className="result-item">
                 <span className="result-title">Secilmiş tarix</span>
-                <span className="result-value">{eventDates.first} {eventDates.second && ","+eventDates.second}</span>
+                <span className="result-value">{eventDates.first} {eventDates.first && eventDates.second && ","}{eventDates.second && eventDates.second}</span>
             </div>
 
             </div>
@@ -142,8 +142,8 @@ function Result({
             <div className="result-row">
             <div className="result-item">
                 <span className="result-title">Secilmiş tədbir</span>
-                <span className="result-value">{eventNames.first}</span>
-                {eventNames.second && (<span className="result-value second">{eventNames.second}</span>)}
+                <span className="result-value">{eventNames.first && eventNames.first+ " - " +eventDates.first}</span>
+                {eventNames.second && (<span className="result-value second">{eventNames.second} - {eventDates.second}</span>)}
             </div>
             </div>
 
