@@ -34,9 +34,9 @@ function SecondStep({
     if (item == 0) {
       setFirstEvent(e.target.value);
       const updatedDates = { ...eventDates, ["first"]: event_date };
-    setEventDates(updatedDates);
-    const updatedNames = { ...eventNames, ["first"]: event_name };
-    setEventNames(updatedNames);
+      setEventDates(updatedDates);
+      const updatedNames = { ...eventNames, ["first"]: event_name };
+      setEventNames(updatedNames);
     } else if (item == 1) {
       setSecondEvent(e.target.value);
       const updatedDates = { ...eventDates, ["second"]: event_date };
@@ -47,15 +47,13 @@ function SecondStep({
     setCity(city);
   };
 
-  useEffect(()=>{
-    if(firstEvent || secondEvent)
-    {
-      setEventStatus(true)
+  useEffect(() => {
+    if (firstEvent || secondEvent) {
+      setEventStatus(true);
+    } else {
+      setEventStatus(false);
     }
-    else{
-      setEventStatus(false)
-    }
-  },[firstEvent,secondEvent])
+  }, [firstEvent, secondEvent]);
 
   const register = (e) => {
     e.preventDefault();
@@ -87,7 +85,6 @@ function SecondStep({
           }}
           action=""
         >
-
           {region.map((element, item) => {
             return (
               <div key={item} className="form-radio">
@@ -120,7 +117,9 @@ function SecondStep({
           })}
 
           <div className="btn-row">
-            <button disabled={!eventStatus ? true : false} className="btn-next">Növbəti</button>
+            <button disabled={!eventStatus ? true : false} className="btn-next">
+              Növbəti
+            </button>
           </div>
         </form>
       </div>

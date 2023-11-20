@@ -6,11 +6,10 @@ function Message() {
     <>
       <div className="message">
         <div>
-        <img src={okey} alt="" />
-        <p>Müraciət uğurla göndərildi.</p>
-      </div>
+          <img src={okey} alt="" />
+          <p>Müraciət uğurla göndərildi.</p>
         </div>
-
+      </div>
     </>
   );
 }

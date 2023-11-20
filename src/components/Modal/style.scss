@@ -1,67 +1,66 @@
 // Modal Component
 .modal-overlay {
-    // position:absolute;
-    // top: 0;
-    // left: 0;
-    // height: 100%;
-    // width: 100%;
-    // background: rgba(0, 0, 0, 0.5); // Semi-transparent black background
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // overflow-y:auto;
-    margin-bottom: 100px;
+  // position:absolute;
+  // top: 0;
+  // left: 0;
+  // height: 100%;
+  // width: 100%;
+  // background: rgba(0, 0, 0, 0.5); // Semi-transparent black background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // overflow-y:auto;
+  margin-bottom: 100px;
+}
 
-  }
+/* This is for Modal with overlay */
 
-  /* This is for Modal with overlay */
-  
-  // .modal-overlay.first{
-  //   bottom: 0;
-  //   .modal-content{
-  //     min-height: 800px;
-  //   }
-  // }
+// .modal-overlay.first{
+//   bottom: 0;
+//   .modal-content{
+//     min-height: 800px;
+//   }
+// }
 
-  // .modal-overlay.second{
-  //   bottom: 0;
-  //   .modal-content{
-  //     height: 800px;
-  //   }
-  // }
+// .modal-overlay.second{
+//   bottom: 0;
+//   .modal-content{
+//     height: 800px;
+//   }
+// }
 
-  .modal-overlay.message{
-    // bottom: 0;
-    .modal-content{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 600px !important;
-    }
-  }
-  
+.modal-overlay.message {
+  // bottom: 0;
   .modal-content {
-    margin-top:50px;
-    padding: 30px;
-    position: relative;
-    width: 791px;
-    // height: 100%;
-    border-radius: 40px;
-    background: #f3f7ff;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px !important;
   }
-  
-  @media only screen and (max-width: 820px) {
-    .modal-content{
-      width: 100%;
-    }
-  }
+}
 
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    font-size: 48px;
-    color: #333;
+.modal-content {
+  margin-top: 50px;
+  padding: 30px;
+  position: relative;
+  width: 791px;
+  // height: 100%;
+  border-radius: 40px;
+  background: #f3f7ff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+}
+
+@media only screen and (max-width: 820px) {
+  .modal-content {
+    width: 100%;
   }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 48px;
+  color: #333;
+}
