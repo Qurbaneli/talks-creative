@@ -45,7 +45,7 @@ function Home() {
         .querySelector(".modal-overlay")
         .scrollIntoView({ behavior: "smooth" });
     }
-  });
+  },[modalIsOpen,region]);
 
   const getRegion = async (id) => {
     try {
