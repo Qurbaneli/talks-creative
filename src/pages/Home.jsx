@@ -15,7 +15,7 @@ import Message from "../components/Form/Message";
 function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formStep, setFormStep] = useState(1);
-  const[registerMessage,setRegisterMessage]=useState(false)
+  const [registerMessage, setRegisterMessage] = useState(false);
   const [region, setRegion] = useState([]);
 
   //Form inputs
@@ -35,29 +35,25 @@ function Home() {
   const [eventDates, setEventDates] = useState({ first: "", second: "" });
   const [eventNames, setEventNames] = useState({ first: "", second: "" });
 
-
-
   const openModal = (id) => {
-   
     getRegion(id);
-    // console.log(id);
   };
 
-  useEffect(()=>{
-    if(modalIsOpen){
-      document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
+  useEffect(() => {
+    if (modalIsOpen) {
+      document
+        .querySelector(".modal-overlay")
+        .scrollIntoView({ behavior: "smooth" });
     }
-  })
+  });
 
   const getRegion = async (id) => {
     try {
       const response = await api.get(`/region/${id}/events`);
 
       setRegion(response.data);
-      console.log(response.data);
       if (response.data.length > 0) {
         setModalIsOpen(true);
-        // document.querySelector(".modal-overlay").scrollIntoView({behavior: 'smooth'});
       } else {
         toast.info("Tədbir olması planlaşdırılır", {
           position: toast.POSITION.TOP_CENTER,
@@ -87,12 +83,12 @@ function Home() {
 
     setEventDates(initialEventDates);
     setEventNames(initialEventNames);
-    setCity("")
+    setCity("");
   };
 
- const registerButton=()=>{
-    setRegisterMessage(true)
- }
+  const registerButton = () => {
+    setRegisterMessage(true);
+  };
   return (
     <div className="container">
       <ToastContainer autoClose={2000} hideProgressBar={false} />
@@ -114,13 +110,17 @@ function Home() {
               olunacaq. Tədbirlər ustad dərsləri, tanınmış insanlarla görüşlər
               və təlimlərdən ibarət olacaq.{" "}
             </p>
-            <button onClick={registerButton} className="btn-register">Qeydiyyat</button>
-            {registerMessage && <p className="register-message">Xəritədən şəhər seçin</p>}
+            <button onClick={registerButton} className="btn-register">
+              Qeydiyyat
+            </button>
+            {registerMessage && (
+              <p className="register-message">Xəritədən şəhər seçin</p>
+            )}
           </div>
         </div>
-        <Map openModal={openModal}/>
+        <Map openModal={openModal} />
       </div>
-    
+
       {formStep == 1 && (
         <Modal variant={true} isOpen={modalIsOpen} closeModal={closeModal}>
           <FirstStep

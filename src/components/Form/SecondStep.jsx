@@ -90,12 +90,12 @@ function SecondStep({
 
           {region.map((element, item) => {
             return (
-              <div className="form-radio">
+              <div key={item} className="form-radio">
                 <h2>{element.cast_date}</h2>
 
                 {element.data.map((el) => {
                   return (
-                    <div className="form-item">
+                    <div key={el.id} className="form-item">
                       <label htmlFor={el.event_name}>{el.event_name}</label>
                       <input
                         id={el.event_name}

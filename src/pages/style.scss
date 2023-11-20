@@ -182,10 +182,24 @@ body {
     .logo-text {
       .logo{
         img{
-          width: 100%;
+          width: 70%;
         }
       }
+
+      .text-detail {
+        margin-top: 50px;
+        p {
+         font-size: 19px;
+          margin-bottom: 40px;
+        }
+
+        .btn-register {
+          width: 180;
+          height: 55px;
+          font-size: 23px;
+        }
     }
 
   }
+}
 }

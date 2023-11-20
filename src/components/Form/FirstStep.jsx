@@ -26,10 +26,10 @@ function FirstStep({
     const newErrors = {};
 
     if (name.trim() == "") {
-      newErrors.name = "Ad daxil olmayib";
+      newErrors.name = "Ad daxil edilməyib";
       isValid = false;
     } else if (name.trim().length < 3) {
-      newErrors.name = "Ad ən a 3 xarakter olmalıdır";
+      newErrors.name = "Ad ən az 3 xarakter olmalıdır";
       isValid = false;
     }
 
@@ -37,7 +37,7 @@ function FirstStep({
       newErrors.surname = "Soyad daxil edilməyib";
       isValid = false;
     } else if (surname.trim().length < 3) {
-      newErrors.surname = "Soyad ən a 3 xarakter olmalıdır";
+      newErrors.surname = "Soyad ən az 3 xarakter olmalıdır";
       isValid = false;
     }
 
@@ -45,7 +45,7 @@ function FirstStep({
       newErrors.education = "Təhsil daxil edilməyib";
       isValid = false;
     } else if (education.trim().length < 3) {
-      newErrors.education = "Təhsil ən a 3 xarakter olmalıdır";
+      newErrors.education = "Təhsil ən az 3 xarakter olmalıdır";
       isValid = false;
     }
 
@@ -53,7 +53,7 @@ function FirstStep({
       newErrors.work = "İş yeri daxil edilməyib";
       isValid = false;
     } else if (work.trim().length < 2) {
-      newErrors.work = "İş yeri ən a 2 xarakter olmalıdır";
+      newErrors.work = "İş yeri ən az 2 xarakter olmalıdır";
       isValid = false;
     }
 
@@ -61,7 +61,7 @@ function FirstStep({
       newErrors.phone = "Telefon daxil edilməyib";
       isValid = false;
     } else if (phone.trim().length < 9) {
-      newErrors.phone = "Telefon ən a 9 xarakter olmalıdır";
+      newErrors.phone = "Telefon ən az 9 xarakter olmalıdır";
       isValid = false;
     }
 

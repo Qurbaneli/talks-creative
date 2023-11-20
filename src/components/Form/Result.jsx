@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { ToastContainer, toast } from "react-toastify";
 import ok from "../../assets/images/ok.svg";
 import api from "../../api/api";
 import "./style.scss";
@@ -31,10 +32,9 @@ function Result({
   setSecondEvent,
 }) {
 
-  const saveData = (e) => {
+  const saveData = async (e) => {
     e.preventDefault();
     var events=[]
-    console.log("Ikinci"+secondEvent)
     if(firstEvent)
     {
      events.push(firstEvent)
@@ -43,14 +43,9 @@ function Result({
     {
       events.push(secondEvent)
     }
-    console.log(name);
-    console.log(surname);
-    console.log(education);
-    console.log(work);
-    console.log(email);
-    console.log(phone);
 
-    api
+    try{
+    const response=await api
       .post("/register/events", {
         participant: {
           first_name: name,
@@ -62,17 +57,25 @@ function Result({
         },
         events: events,
       })
-      .then((response) => {
-        console.log(response)
+      
         if(response.status==200 || response.status==201)
         {
           setFormStep(4)
         }
-      });
+      }
+      catch(error)
+      {
+        toast.error("Xəta baş verdi", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        console.log(error)
+      }
+
   };
 
   return (
     <>
+     <ToastContainer autoClose={2000} hideProgressBar={false} />
       <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
         <div className="step active">
