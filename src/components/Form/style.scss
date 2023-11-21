@@ -10,6 +10,23 @@
   src: url("../../assets/fonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
+.poster {
+  img {
+    width: 100%;
+    height: auto;
+    
+  }
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.form-content {
+  max-width: 791px;
+  margin:0 auto;
+  padding: 30px;
+  
+}
+
 .form-title {
   color: #000;
   text-align: center;
@@ -110,7 +127,39 @@
   .form-item {
     display: flex;
     justify-content: space-between;
+    gap:10px;
+    align-items: center;
     margin-bottom: 36px;
+    background: linear-gradient(0deg, #f3f7ff, #f3f7ff);
+    border: 1px solid #c5c5c5;
+    border-radius: 16px;
+    padding: 16px;
+
+
+    .clock-location {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 19px;
+      font-family: "SF Pro Display";
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19px;
+      color: #616161;
+
+      .clock {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+
     label {
       color: #000;
       font-family: "SF Pro Display";
@@ -203,6 +252,7 @@
         font-size: 22px;
         font-weight: 400;
         line-height: 26px;
+        color: #353535;
       }
       .result-value {
         font-family: "SF Pro Display";
@@ -215,6 +265,10 @@
         }
       }
     }
+  }
+
+  .note {
+    font-size: 18px;
   }
 }
 
@@ -294,6 +348,14 @@
     label {
       font-size: 18px;
     }
+    
+    .clock-location {
+flex-direction: column;
+.clock , .location {
+  width: 100%;
+}
+    }
+
   }
 
   .result-box {

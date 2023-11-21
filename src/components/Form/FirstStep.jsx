@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import posterModal from "../../assets/images/bigposter.jpg"
 import "./style.scss";
 
 function FirstStep({
@@ -77,7 +78,12 @@ function FirstStep({
   };
   return (
     <>
-      <h1 className="form-title">Qeydiyyat</h1>
+
+    <div className="poster">
+      <img src={posterModal} alt="talks-creative-poster" />
+    </div>
+    <div className="form-content">
+    <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
         <div className="step active">
           <div className="step-circle">1</div>
@@ -102,7 +108,7 @@ function FirstStep({
                 type="text"
                 name="first_name"
               />
-              {errors.name && <p class="error">{errors.name}</p>}
+              {errors.name && <p className="error">{errors.name}</p>}
             </div>
 
             <div className="form-item">
@@ -114,7 +120,7 @@ function FirstStep({
                 type="text"
                 name="last_name"
               />
-              {errors.surname && <p class="error">{errors.surname}</p>}
+              {errors.surname && <p className="error">{errors.surname}</p>}
             </div>
           </div>
 
@@ -128,7 +134,7 @@ function FirstStep({
                 type="text"
                 name="education"
               />
-              {errors.education && <p class="error">{errors.education}</p>}
+              {errors.education && <p className="error">{errors.education}</p>}
             </div>
 
             <div className="form-item">
@@ -140,7 +146,7 @@ function FirstStep({
                 type="text"
                 name="work"
               />
-              {errors.work && <p class="error">{errors.work}</p>}
+              {errors.work && <p className="error">{errors.work}</p>}
             </div>
           </div>
 
@@ -154,7 +160,7 @@ function FirstStep({
                 type="text"
                 name="phone"
               />
-              {errors.phone && <p class="error">{errors.phone}</p>}
+              {errors.phone && <p className="error">{errors.phone}</p>}
             </div>
 
             <div className="form-item">
@@ -173,7 +179,7 @@ function FirstStep({
                 type="email"
                 name="email"
               />
-              {errors.email && <p class="error">{errors.email}</p>}
+              {errors.email && <p className="error">{errors.email}</p>}
             </div>
           </div>
 
@@ -182,6 +188,8 @@ function FirstStep({
           </div>
         </form>
       </div>
+    </div>
+
     </>
   );
 }

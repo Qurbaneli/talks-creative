@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import posterModal from "../../assets/images/bigposter.jpg"
 import ok from "../../assets/images/ok.svg";
 import api from "../../api/api";
 import "./style.scss";
@@ -53,7 +54,7 @@ function Result({
         },
         events: events,
       });
-
+      console.log(response)
       if (response.status == 200 || response.status == 201) {
         setFormStep(4);
       }
@@ -67,7 +68,11 @@ function Result({
 
   return (
     <>
-      <ToastContainer autoClose={2000} hideProgressBar={false} />
+            <div className="poster">
+      <img src={posterModal} alt="talks-creative-poster" />
+    </div>
+    <div className="form-content">
+        <ToastContainer autoClose={2000} hideProgressBar={false} />
       <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
         <div className="step active">
@@ -147,8 +152,12 @@ function Result({
                 )}
               </div>
             </div>
-
-            <p>Bir təlimin (görüş/ustad dərs) müddəti 2 saatdır</p>
+            {city === "Quba" ? (
+  <p className="note">Bir təlimin (görüş/ustad dərs) müddəti 2 saatdır</p>
+) : (
+  <p className="note">Bir təlimin (görüş/ustad dərs) müddəti 1.5 saatdır</p>
+)}
+           
           </div>
 
           <div className="btn-row">
@@ -156,6 +165,8 @@ function Result({
           </div>
         </form>
       </div>
+    </div>
+      
     </>
   );
 }

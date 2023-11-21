@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ok from "../../assets/images/ok.svg";
+import posterModal from "../../assets/images/bigposter.jpg"
+import location from "../../assets/images/location.svg";
+import clock from "../../assets/images/clock.svg";
 import "./style.scss";
 
 function SecondStep({
@@ -63,7 +66,11 @@ function SecondStep({
   };
   return (
     <>
-      <h1 className="form-title">Qeydiyyat</h1>
+        <div className="poster">
+      <img src={posterModal} alt="talks-creative-poster" />
+    </div>
+    <div className="form-content">
+    <h1 className="form-title">Qeydiyyat</h1>
       <div className="steps">
         <div className="step active">
           <div className="step-circle">
@@ -93,7 +100,15 @@ function SecondStep({
                 {element.data.map((el) => {
                   return (
                     <div key={el.id} className="form-item">
+                      <div className="form-item-detail">
                       <label htmlFor={el.event_name}>{el.event_name}</label>
+                      <div className="clock-location">
+                       {el.event_time && ( <span className="clock"> <img src={clock} alt="clock" /> {el.event_time}</span>)}
+                        {el.address && (<span className="location"><img src={location} alt="location" /> {el.address}</span>)}
+                      </div>
+                      </div>
+                      
+                      <div>
                       <input
                         id={el.event_name}
                         onChange={(e) => {
@@ -109,6 +124,8 @@ function SecondStep({
                         name={element.cast_date}
                         value={el.id}
                       />
+                      </div>
+                      
                     </div>
                   );
                 })}
@@ -123,6 +140,8 @@ function SecondStep({
           </div>
         </form>
       </div>
+    </div>
+    
     </>
   );
 }

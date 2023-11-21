@@ -35,8 +35,18 @@ function Home() {
   const [eventDates, setEventDates] = useState({ first: "", second: "" });
   const [eventNames, setEventNames] = useState({ first: "", second: "" });
 
-  const openModal = (id) => {
-    getRegion(id);
+  const openModal = (id,status) => {
+    if(status)
+    {
+      getRegion(id);
+    }
+    else
+    {
+      toast.info("Qeydiyyat tezliklə başlayacaq", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
+    
   };
 
   useEffect(() => {
