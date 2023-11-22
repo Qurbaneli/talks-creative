@@ -155,7 +155,7 @@ function Result({
             {city === "Quba" ? (
   <p className="note">Bir təlimin (görüş/ustad dərs) müddəti 2 saatdır</p>
 ) : (
-  <p className="note">Bir təlimin (görüş/ustad dərs) müddəti 1.5 saatdır</p>
+  <p className="note">Bir təlimin (görüş/ustad dərs) müddəti 1 saat 30 dəqiqədir</p>
 )}
            
           </div>
