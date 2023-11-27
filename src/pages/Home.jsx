@@ -4,7 +4,9 @@ import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/images/logo.svg";
 import api from "../api/api";
 import "./style.scss";
+import { MainContext, useContext } from "../context";
 
+//Components
 import Modal from "../components/Modal/Modal";
 import Map from "../components/Map";
 import SecondStep from "../components/Form/SecondStep";
@@ -13,40 +15,68 @@ import Result from "../components/Form/Result";
 import Message from "../components/Form/Message";
 
 function Home() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [formStep, setFormStep] = useState(1);
-  const [registerMessage, setRegisterMessage] = useState(false);
-  const [region, setRegion] = useState([]);
-
-  //Form inputs
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [education, setEducation] = useState("");
-  const [work, setWork] = useState("");
-
-  const [firstEvent, setFirstEvent] = useState("");
-  const [secondEvent, setSecondEvent] = useState("");
-  const [city, setCity] = useState("");
   const initialEventDates = { first: "", second: "" };
   const initialEventNames = { first: "", second: "" };
 
-  const [eventDates, setEventDates] = useState({ first: "", second: "" });
-  const [eventNames, setEventNames] = useState({ first: "", second: "" });
+  const {
+    registerMessage,
+    setRegisterMessage,
+    modalIsOpen,
+    setModalIsOpen,
+    region,
+    setRegion,
+    setCondition,
+    formStep,
+    setFormStep,
+    setName,
+    setSurname,
+    setEmail,
+    setPhone,
+    setEducation,
+    setWork,
+    setFirstEvent,
+    setSecondEvent,
+    setEventDates,
+    setEventNames,
+    setCity,
+  } = useContext(MainContext);
 
-  const openModal = (id,status) => {
-    if(status)
-    {
+  const openModal = (id, status) => {
+    if (status) {
+      setCondition(false);
+      if (formStep == 3) {
+        setFormStep(2);
+      }
+
+      if (formStep == 4) {
+        setName("");
+        setSurname("");
+        setEmail("");
+        setPhone("");
+        setEducation("");
+        setWork("");
+        setFormStep(1);
+      }
+
+      //Reset radio buttons
+      var radioButtons = document.querySelectorAll("input[type='radio']");
+      radioButtons.forEach((el) => {
+        el.checked = false;
+      });
+
       getRegion(id);
-    }
-    else
-    {
+      //Clear States
+      setFirstEvent("");
+      setSecondEvent("");
+
+      setEventDates(initialEventDates);
+      setEventNames(initialEventNames);
+      setCity("");
+    } else {
       toast.info("Qeydiyyat tezliklə başlayacaq", {
         position: toast.POSITION.TOP_CENTER,
       });
     }
-    
   };
 
   useEffect(() => {
@@ -55,12 +85,11 @@ function Home() {
         .querySelector(".modal-overlay")
         .scrollIntoView({ behavior: "smooth" });
     }
-  },[modalIsOpen,region]);
+  }, [modalIsOpen, region]);
 
   const getRegion = async (id) => {
     try {
       const response = await api.get(`/region/${id}/events`);
-
       setRegion(response.data);
       if (response.data.length > 0) {
         setModalIsOpen(true);
@@ -133,84 +162,17 @@ function Home() {
 
       {formStep == 1 && (
         <Modal variant={true} isOpen={modalIsOpen} closeModal={closeModal}>
-          <FirstStep
-            name={name}
-            setName={setName}
-            surname={surname}
-            setSurname={setSurname}
-            education={education}
-            setEducation={setEducation}
-            work={work}
-            setWork={setWork}
-            phone={phone}
-            setPhone={setPhone}
-            email={email}
-            setEmail={setEmail}
-            formStep={formStep}
-            setFormStep={setFormStep}
-          />
+          <FirstStep />
         </Modal>
       )}
       {formStep == 2 && (
         <Modal variant={false} isOpen={modalIsOpen} closeModal={closeModal}>
-          <SecondStep
-            region={region}
-            formStep={formStep}
-            setFormStep={setFormStep}
-            name={name}
-            setName={setName}
-            surname={surname}
-            setSurname={setSurname}
-            education={education}
-            setEducation={setEducation}
-            work={work}
-            setWork={setWork}
-            phone={phone}
-            setPhone={setPhone}
-            email={email}
-            setEmail={setEmail}
-            firstEvent={firstEvent}
-            setFirstEvent={setFirstEvent}
-            secondEvent={secondEvent}
-            setSecondEvent={setSecondEvent}
-            city={city}
-            setCity={setCity}
-            eventDates={eventDates}
-            setEventDates={setEventDates}
-            eventNames={eventNames}
-            setEventNames={setEventNames}
-          />
+          <SecondStep />
         </Modal>
       )}
       {formStep == 3 && (
         <Modal variant={true} isOpen={modalIsOpen} closeModal={closeModal}>
-          <Result
-            region={region}
-            formStep={formStep}
-            setFormStep={setFormStep}
-            name={name}
-            setName={setName}
-            surname={surname}
-            setSurname={setSurname}
-            education={education}
-            setEducation={setEducation}
-            work={work}
-            setWork={setWork}
-            phone={phone}
-            setPhone={setPhone}
-            email={email}
-            setEmail={setEmail}
-            firstEvent={firstEvent}
-            setFirstEvent={setFirstEvent}
-            secondEvent={secondEvent}
-            setSecondEvent={setSecondEvent}
-            city={city}
-            setCity={setCity}
-            eventDates={eventDates}
-            setEventDates={setEventDates}
-            eventNames={eventNames}
-            setEventNames={setEventNames}
-          />
+          <Result />
         </Modal>
       )}
 
@@ -221,23 +183,7 @@ function Home() {
           isOpen={modalIsOpen}
           closeModal={closeModal}
         >
-          <Message
-            region={region}
-            formStep={formStep}
-            setFormStep={setFormStep}
-            name={name}
-            setName={setName}
-            surname={surname}
-            setSurname={setSurname}
-            education={education}
-            setEducation={setEducation}
-            work={work}
-            setWork={setWork}
-            phone={phone}
-            setPhone={setPhone}
-            email={email}
-            setEmail={setEmail}
-          />
+          <Message />
         </Modal>
       )}
     </div>
