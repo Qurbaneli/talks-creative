@@ -252,7 +252,7 @@ function Map({ openModal }) {
             fill="#F3F7FF"
             stroke="#C7B5F8"
             onClick={() => {
-              openModal(11, false);
+              openModal(11, true);
             }}
             className="region"
           />

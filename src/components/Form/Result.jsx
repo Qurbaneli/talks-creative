@@ -59,7 +59,7 @@ function Result() {
         },
         events: events,
       });
-      console.log(response);
+      // console.log(response);
       if (response.status == 200 || response.status == 201) {
         setFormStep(4);
       }
