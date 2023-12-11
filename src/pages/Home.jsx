@@ -131,7 +131,6 @@ function Home() {
   return (
     <div className="container">
       <ToastContainer autoClose={2000} hideProgressBar={false} />
-
       <div id="main">
         <div className="logo-text">
           <div className="logo">
@@ -159,7 +158,6 @@ function Home() {
         </div>
         <Map openModal={openModal} />
       </div>
-
       {formStep == 1 && (
         <Modal variant={true} isOpen={modalIsOpen} closeModal={closeModal}>
           <FirstStep />
@@ -175,7 +173,6 @@ function Home() {
           <Result />
         </Modal>
       )}
-
       {formStep == 4 && (
         <Modal
           variant={true}
@@ -186,6 +183,17 @@ function Home() {
           <Message />
         </Modal>
       )}
+      
+      <div className="widgets" align="center">
+      <iframe
+        src="//lightwidget.com/widgets/6bf842fed3b150f5934ca2cf53a1bc8d.html"
+        scrolling="no"
+        allowtransparency="true"
+        class="lightwidget-widget"
+        style={{ width: "50%", border: "0", overflow: "hidden" }}
+      ></iframe>
+      </div>
+
     </div>
   );
 }

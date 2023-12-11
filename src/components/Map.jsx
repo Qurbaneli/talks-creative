@@ -30,7 +30,7 @@ function Map({ openModal }) {
             stroke="#C7B5F8"
             className="region"
             onClick={() => {
-              openModal(12, false);
+              openModal(12, true);
             }}
           />
           <path
@@ -180,7 +180,7 @@ function Map({ openModal }) {
             stroke="#C7B5F8"
             className="region"
             onClick={() => {
-              openModal(3, false);
+              openModal(3, true);
             }}
           />
           <path
@@ -349,7 +349,7 @@ function Map({ openModal }) {
             fill="#F3F7FF"
             stroke="#C7B5F8"
             onClick={() => {
-              openModal(4, false);
+              openModal(4, true);
             }}
             className="region"
           />
@@ -476,7 +476,7 @@ function Map({ openModal }) {
             fill="#F3F7FF"
             stroke="#C7B5F8"
             onClick={() => {
-              openModal(9, false);
+              openModal(9, true);
             }}
             className="region"
           />
